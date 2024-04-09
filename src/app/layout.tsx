@@ -12,7 +12,6 @@ import {
 import { Image } from '@nextui-org/image';
 import NextImage from 'next/image';
 import { Link } from '@nextui-org/link';
-
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
@@ -26,14 +25,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const menuItems = [
-    { href: '/about', text: 'About', description: 'リンゴ農園収穫祭とは？' },
+    { href: '/about', text: 'ABOUT', description: 'リンゴ農園収穫祭とは？' },
     {
       href: '/contents',
-      text: 'Contents',
+      text: 'CONTENTS',
       description: 'イベントの構成とクイズルール',
     },
-    { href: '/entry', text: 'Entry', description: '参加申し込みはコチラ！' },
-    { href: '/info', text: 'Information', description: 'その他のお知らせ' },
+    { href: '/entry', text: 'ENTRY', description: '参加申し込みはコチラ！' },
+    { href: '/info', text: 'INFORMATION', description: 'その他のお知らせ' },
   ];
   return (
     <html lang="en" className="light">
@@ -52,13 +51,15 @@ export default function RootLayout({
               </NavbarBrand>
             </Link>
 
-            <NavbarMenuToggle />
-            <NavbarMenu>
+            <NavbarMenuToggle className="sm:hidden" />
+            <NavbarMenu className="pt-6">
               {menuItems.map((item) => (
                 <Link key={item.href} href={item.href}>
-                  <NavbarMenuItem className="m-3">
+                  <NavbarMenuItem className="m-4">
                     <p className="font-extrabold text-3xl">{item.text}</p>
-                    <p className="text-gray-500">{item.description}</p>
+                    <p className="text-gray-500 text-sm pl-4 pt-2">
+                      {item.description}
+                    </p>
                   </NavbarMenuItem>
                 </Link>
               ))}
