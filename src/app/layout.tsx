@@ -57,7 +57,7 @@ export default function RootLayout({
                 <Link key={item.href} href={item.href}>
                   <NavbarMenuItem className="m-4">
                     <p className="font-extrabold text-3xl">{item.text}</p>
-                    <p className="text-gray-500 text-sm pl-4 pt-2">
+                    <p className="text-primary-900 text-sm pl-4 pt-2">
                       {item.description}
                     </p>
                   </NavbarMenuItem>
