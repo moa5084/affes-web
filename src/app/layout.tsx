@@ -10,7 +10,6 @@ import {
   NavbarMenuItem,
   NavbarMenuToggle,
 } from '@nextui-org/navbar';
-import { Image } from '@nextui-org/image';
 import NextImage from 'next/image';
 import { Link } from '@nextui-org/link';
 const inter = Inter({ subsets: ['latin'] });
@@ -42,8 +41,7 @@ export default function RootLayout({
           <Navbar>
             <Link href="/">
               <NavbarBrand>
-                <Image
-                  as={NextImage}
+                <NextImage
                   width={150}
                   height={50}
                   src="/headerLogo.png"
