@@ -56,7 +56,7 @@ export default function RootLayout({
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="font-bold text-medium text-primary hover:bg-primary hover:text-primary-50 transition-colors h-full"
+                  className="font-bold text-medium text-default-400 hover:text-secondary-700 hover:bg-secondary-100 hover:opacity-100 transition-colors h-full"
                 >
                   <NavbarMenuItem className="m-0 px-2 md:px-4">
                     <p>{item.text}</p>
