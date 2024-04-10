@@ -5,6 +5,7 @@ import './globals.css';
 import {
   Navbar,
   NavbarBrand,
+  NavbarContent,
   NavbarMenu,
   NavbarMenuItem,
   NavbarMenuToggle,
@@ -50,6 +51,19 @@ export default function RootLayout({
                 />
               </NavbarBrand>
             </Link>
+            <NavbarContent className="hidden sm:flex gap-0" justify="center">
+              {menuItems.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="font-bold text-medium text-primary hover:bg-primary hover:text-primary-50 transition-colors h-full"
+                >
+                  <NavbarMenuItem className="m-0 px-2 md:px-4">
+                    <p>{item.text}</p>
+                  </NavbarMenuItem>
+                </Link>
+              ))}
+            </NavbarContent>
 
             <NavbarMenuToggle className="sm:hidden" />
             <NavbarMenu className="pt-6">
