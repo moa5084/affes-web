@@ -2,7 +2,17 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { Providers } from './providers';
 import './globals.css';
-
+import {
+  Navbar,
+  NavbarBrand,
+  NavbarContent,
+  NavbarMenu,
+  NavbarMenuItem,
+  NavbarMenuToggle,
+} from '@nextui-org/navbar';
+import { Image } from '@nextui-org/image';
+import NextImage from 'next/image';
+import { Link } from '@nextui-org/link';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
@@ -15,10 +25,62 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const menuItems = [
+    { href: '/about', text: 'ABOUT', description: 'リンゴ農園収穫祭とは？' },
+    {
+      href: '/contents',
+      text: 'CONTENTS',
+      description: 'イベントの構成とクイズルール',
+    },
+    { href: '/entry', text: 'ENTRY', description: '参加申し込みはコチラ！' },
+    { href: '/info', text: 'INFORMATION', description: 'その他のお知らせ' },
+  ];
   return (
     <html lang="en" className="light">
       <body className={inter.className}>
-        <Providers>{children}</Providers>
+        <Providers>
+          <Navbar>
+            <Link href="/">
+              <NavbarBrand>
+                <Image
+                  as={NextImage}
+                  width={150}
+                  height={50}
+                  src="/headerLogo.png"
+                  alt="logo"
+                />
+              </NavbarBrand>
+            </Link>
+            <NavbarContent className="hidden sm:flex gap-0" justify="center">
+              {menuItems.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="font-bold text-medium text-primary hover:bg-primary hover:text-primary-50 transition-colors h-full"
+                >
+                  <NavbarMenuItem className="m-0 px-2 md:px-4">
+                    <p>{item.text}</p>
+                  </NavbarMenuItem>
+                </Link>
+              ))}
+            </NavbarContent>
+
+            <NavbarMenuToggle className="sm:hidden" />
+            <NavbarMenu className="pt-6">
+              {menuItems.map((item) => (
+                <Link key={item.href} href={item.href}>
+                  <NavbarMenuItem className="m-4">
+                    <p className="font-extrabold text-3xl">{item.text}</p>
+                    <p className="text-primary-900 text-sm pl-4 pt-2">
+                      {item.description}
+                    </p>
+                  </NavbarMenuItem>
+                </Link>
+              ))}
+            </NavbarMenu>
+          </Navbar>
+          {children}
+        </Providers>
       </body>
     </html>
   );
