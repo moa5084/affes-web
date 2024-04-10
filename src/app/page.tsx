@@ -3,27 +3,34 @@ import NextImage from 'next/image';
 export default function Home() {
   return (
     <main className="min-h-screen">
-      <div className="flex w-screen flex-wrap justify-center bg-white py-10">
-        <div className="max-w-4/5 sm:max-w-[600px] m-10 flex flex-wrap justify-center gap-8 text-xl sm:text-4xl font-bold text-primary-900">
-          <p className="w-full text-left">
-            <div className="before:block before:absolute before:-inset-1 before:-skew-x-12 before:bg-primary relative inline-block px-2 mx-2">
-              <span className="relative text-white">個性と実験</span>
+      <div className="flex w-screen flex-wrap justify-center bg-white py-6">
+        <div className="w-full sm:max-w-[760px] flex">
+          <div className="max-w-80 sm:max-w-[760px] mx-5 my-10 flex flex-wrap justify-start content-center gap-2 text-2xl sm:text-5xl font-bold text-primary-900">
+            <div>
+              <p className="p-2 px-4 bg-gradient-to-r from-secondary to-primary-500 tracking-wider text-white">
+                今年も、
+              </p>
             </div>
-            のクイズイベント
-          </p>
-          <p className="w-full text-right">
-            今年は
-            <div className="before:block before:absolute before:-inset-1 before:-skew-x-12 before:bg-primary relative inline-block px-2 mx-2">
-              <span className="relative text-white">2日間</span>
-            </div>
-            開催！
-          </p>
+
+            <p className="p-2 px-4  bg-gradient-to-r from-secondary to-primary-500 tracking-wider text-white">
+              個性と実験の2日間。
+            </p>
+          </div>
         </div>
-        <div className="relative my-10 w-4/5 sm:w-[600px] aspect-[30/7]">
+        <div className="relative mx-5 my-10 w-full sm:hidden aspect-[1280/720]">
           <NextImage
-            src="/eventLogo.png"
+            src="/topLogo.png"
             fill
-            sizes="(max-width: 640px) 80vw, 600px"
+            sizes="91.67vw"
+            style={{ objectFit: 'contain' }}
+            alt="logo"
+          />
+        </div>
+        <div className="hidden sm:block mx-5 my-20">
+          <NextImage
+            src="/topLogoLong.png"
+            width={800}
+            height={140}
             style={{ objectFit: 'contain' }}
             alt="logo"
           />
